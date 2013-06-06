@@ -455,6 +455,7 @@ var Mustache = function () {
     var ich = {
         VERSION: "0.10.2",
         templates: {},
+        overwriteDuplicates: false,
 
         // grab jquery or zepto if it's there
         $: (typeof window !== 'undefined') ? window.jQuery || window.Zepto || null : null,
@@ -471,10 +472,10 @@ var Mustache = function () {
                 }
                 return;
             }
-            if (ich[name]) {
-                console.error("Invalid name: " + name + ".");
-            } else if (ich.templates[name]) {
-                console.error("Template \"" + name + "  \" exists");
+            if (name in initialIchProperties) {
+                console.error("Invalid template name: " + name);
+            } else if (ich.templates[name] && ich.overwriteDuplicates === false) {
+                console.error("Template \"" + name + "\" already exists");
             } else {
                 ich.templates[name] = templateString;
                 ich[name] = function (data, raw) {
@@ -522,6 +523,11 @@ var Mustache = function () {
             }
         }
     };
+
+    var initialIchProperties = {};
+    for(var prop in ich){
+        initialIchProperties[prop] = true;
+    }
 
     // Export the ICanHaz object for **Node.js**, with
     // backwards-compatibility for the old `require()` API. If we're in

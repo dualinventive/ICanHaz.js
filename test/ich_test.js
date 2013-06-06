@@ -25,6 +25,11 @@ test("renders non-parameterized templates", function() {
   equal(first(ich.test1({}, raw(ich))), "<p>This is a test of the emergency broadcast system.</p>"); // raw text
 });
 
+test("duplicate IDs for templates not overridden by default", function() {
+    expect(1);
+    notEqual(first(ich.test2({what:'bad'}, raw(ich))), "Duplicate ID is bad and you should feel bad");
+});
+
 test("renders parameterized templates", function() {
   expect(1);
   equal(first(ich.test2({prey:'wabbits'}, raw(ich))), "<span>Be vewwy vewwy quiet, we're hunting wabbits.</span>");
