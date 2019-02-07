@@ -1,10 +1,10 @@
 {
   "name": "icanhaz",
-  "version": "0.10.3",
+  "version": "0.11.0",
   "homepage": "http://icanhazjs.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/andyet/ICanHaz.js.git"
+    "url": "git://github.com/dualinventive/ICanHaz.js.git"
   },
   "author": {
     "name": "Henrik Joreteg",
@@ -14,7 +14,7 @@
   "description": "Simple & powerful js templating tool",
   "licenses": [{
     "type": "MIT",
-    "url": "https://github.com/andyet/ICanHaz.js/blob/master/LICENSE"
+    "url": "https://github.com/dualinventive/ICanHaz.js/blob/master/LICENSE"
   }],
   "main": "ICanHaz.js",
   "keywords": [
